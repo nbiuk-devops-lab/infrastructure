@@ -1,2 +1,6 @@
 .idea/
 helper.txt
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+crash.log
