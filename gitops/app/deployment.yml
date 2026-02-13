@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: laravel-application
+  namespace: app
+  labels:
+    app: laravel-application
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: laravel-application
+  template:
+    metadata:
+      labels:
+        app: laravel-application
+    spec:
+      containers:
+        - name: laravel-application
+          image: ghcr.io/nbiuk-devops-lab/laravel-application:v1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 20
