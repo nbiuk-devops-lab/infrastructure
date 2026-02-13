@@ -24,7 +24,11 @@ resource "aws_subnet" "public_a" {
   availability_zone       = "${var.aws_region}a"
   map_public_ip_on_launch = true
 
-  tags = { Name = "public-a" }
+  tags = {
+    Name                        = "public-a"
+    "kubernetes.io/role/elb"    = "1"
+    "kubernetes.io/cluster/eks" = "owned"
+  }
 }
 
 resource "aws_subnet" "public_b" {
@@ -33,7 +37,11 @@ resource "aws_subnet" "public_b" {
   availability_zone       = "${var.aws_region}b"
   map_public_ip_on_launch = true
 
-  tags = { Name = "public-b" }
+  tags = {
+    Name                        = "public-b"
+    "kubernetes.io/role/elb"    = "1"
+    "kubernetes.io/cluster/eks" = "owned"
+  }
 }
 
 ############################
@@ -45,7 +53,11 @@ resource "aws_subnet" "private_a" {
   cidr_block        = "10.0.11.0/24"
   availability_zone = "${var.aws_region}a"
 
-  tags = { Name = "private-a" }
+  tags = {
+    Name                              = "private-a"
+    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/cluster/eks"       = "owned"
+  }
 }
 
 resource "aws_subnet" "private_b" {
@@ -53,7 +65,11 @@ resource "aws_subnet" "private_b" {
   cidr_block        = "10.0.12.0/24"
   availability_zone = "${var.aws_region}b"
 
-  tags = { Name = "private-b" }
+  tags = {
+    Name                              = "private-b"
+    "kubernetes.io/role/internal-elb" = "1"
+    "kubernetes.io/cluster/eks"       = "owned"
+  }
 }
 
 ############################
