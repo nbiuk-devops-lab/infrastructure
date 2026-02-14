@@ -1,23 +1,11 @@
-# IaC/GitOps demo 
+# IaC/GitOps demo project
 
-This repository contains an example infrastructure setup demonstrating modern DevOps practices using:
+In this project I'm using AWS EKS with Terraform.
 
-- Terraform
-- GitOps
-- Kubernetes-ready architecture
+To avoid unnecessary cloud costs, the infrastructure is **not** actively deployed on AWS.
 
-## Only for demonstration purposes
-
-To avoid unnecessary cloud costs, the infrastructure is not actively deployed on AWS.  
-The Terraform and GitOps configuration reflects a realistic, production-oriented setup and can be applied in a real environment.
-
-## Run the app locally
+# Run the app locally instead
 
 https://github.com/nbiuk-devops-lab/laravel-application
 
-The application repository contains full instructions for local environment.
-
----
-
-**Author:** Nino Biuk  
-**Focus:** DevOps, Cloud, Kubernetes, Automation
+Please follow the readme.md in the project repo
