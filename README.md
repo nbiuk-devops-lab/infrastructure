@@ -4,7 +4,13 @@ In this project I'm using AWS EKS with Terraform.
 
 To avoid unnecessary cloud costs, the infrastructure is **not** actively deployed on AWS.
 
-# Run the app locally instead
+Tip: The Terraform architecture has been visualized using two different approaches to improve transparency and dependency understanding.
+
+![Terraform Graph](./terraform/rover.svg)
+
+![Terraform Graph](./terraform/graph.png)
+
+# Run the app locally
 
 https://github.com/nbiuk-devops-lab/laravel-application
 
