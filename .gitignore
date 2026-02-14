@@ -4,3 +4,4 @@ helper.txt
 terraform.tfstate
 terraform.tfstate.*
 crash.log
+gitops/app/ingress_local.yml
