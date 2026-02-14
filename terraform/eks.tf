@@ -1,7 +1,3 @@
-############################
-# EKS Cluster
-############################
-
 resource "aws_eks_cluster" "eks" {
   name     = var.cluster_name
   role_arn = aws_iam_role.eks_cluster_role.arn
@@ -17,10 +13,6 @@ resource "aws_eks_cluster" "eks" {
     aws_iam_role_policy_attachment.cluster_policy
   ]
 }
-
-############################
-# EKS OIDC Provider (required for IRSA)
-############################
 
 data "tls_certificate" "eks" {
   url = aws_eks_cluster.eks.identity[0].oidc[0].issuer
@@ -39,10 +31,6 @@ resource "aws_iam_openid_connect_provider" "eks" {
 
   depends_on = [aws_eks_cluster.eks]
 }
-
-############################
-# Node Group
-############################
 
 resource "aws_eks_node_group" "nodes" {
   cluster_name    = aws_eks_cluster.eks.name

@@ -52,13 +52,6 @@ resource "aws_iam_role_policy_attachment" "registry_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
 }
 
-############################
-# AWS Load Balancer Controller IRSA
-############################
-
-# NOTE:
-# This uses the EKS cluster OIDC provider so the controller Pod
-# can assume this IAM role via its ServiceAccount.
 
 data "aws_iam_policy_document" "alb_controller_assume_role" {
   statement {
