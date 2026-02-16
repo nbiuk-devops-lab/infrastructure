@@ -1,3 +1,9 @@
+Disclaimer
+
+This repository demonstrates a production-like DevOps setup for portfolio purposes. It does NOT represent any real customer or company infrastructure.
+All values, names and configurations are generic examples.
+
+
 # IaC/GitOps demo project
 
 In this project I'm using AWS EKS with Terraform.
